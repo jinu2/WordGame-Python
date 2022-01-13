@@ -353,7 +353,6 @@ class YazmaGUI(tk.Frame):
 
         point = 0
         x = list(soz.keys())
-        y = StringVar()
         global a
         a = random.choice(x)
         print(a)
@@ -365,7 +364,7 @@ class YazmaGUI(tk.Frame):
                                fg="black", bg="pink")
         self.statement.grid(row=1, column=0, columnspan=2, pady=30)
 
-        self.answer = Entry(self,justify='left', text = y)
+        self.answer = Entry(self,justify='left')
         self.answer.grid(row=2, column=0, columnspan=2,pady=30)
 
         self.checkBt=Button(self,text="Check it",font=('Helvetica', 12, "bold"),fg="white",bg="light green",command=lambda fr=self: YazmaGUI.checking(fr,soz))
@@ -382,17 +381,15 @@ class YazmaGUI(tk.Frame):
     def checking(self,soz):
         t = 0
         temp = soz[a]
-
-        self.y = str(self.answer.get())
+        y = str(self.answer.get())
         print(temp)
-        print(self.y)
         print(type(temp))
         if type(temp) == list:
             for i in range(len(temp)):
-                if self.y.lower() == temp[i].lower():
+                if y.lower() == temp[i].lower():
                     t = 1
             if t == 0:
-                label = Label(self, text="Wrong. Answer is: " + temp, font=('Helvetica', 12, "bold"), fg="white",
+                label = Label(self, text="Wrong. Answer is: " + random.choice(temp), font=('Helvetica', 12, "bold"), fg="white",
                               bg="red")
                 label.grid(row=4, column=0, columnspan=2,pady=30)
             elif t == 1:
@@ -403,7 +400,7 @@ class YazmaGUI(tk.Frame):
                 label = Label(self, text="Excellent,Congrats!", font=('Helvetica', 12, "bold"), fg="white", bg="green")
                 label.grid(row=4, column=0, columnspan=2,pady=30)
         else:
-            if self.y.lower() == temp.lower():
+            if y.lower() == temp.lower():
                 self.checkBt.config(state="disable")
                 self.answer.config(state="disable")
                 label = Label(self, text="\t\t\t\t\t\t", font=('Helvetica', 12, "bold"),  bg="pink")
@@ -414,8 +411,6 @@ class YazmaGUI(tk.Frame):
                 label = Label(self, text="Wrong. Answer is: " + temp, font=('Helvetica', 12, "bold"), fg="white",
                               bg="red")
                 label.grid(row=4, column=0, columnspan=2,pady=30)
-
-
 
 class SecmeGUI(tk.Frame):
     def __init__(self, master):
