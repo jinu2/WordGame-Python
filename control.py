@@ -240,9 +240,9 @@ class Alistirma(tk.Frame):
         self.but = Label(self, text="Eslestirme yap:",font=('Pursia', 14, "bold"),bg="pink", borderwidth=0)
         self.but.grid(row=0, column=0, columnspan=2, pady=5, padx=5)
 
-        self.but = Label(self, text="Turkish",font=('Pursia', 14, "bold"),bg="pink", borderwidth=0)
+        self.but = Label(self, text="English",font=('Pursia', 14, "bold"),bg="pink", borderwidth=0)
         self.but.grid(row=1, column=0, pady=5, padx=5)
-        self.but = Label(self, text="English",font=('Pursia', 14, "bold"),bg="pink",borderwidth=0)
+        self.but = Label(self, text="Turkish",font=('Pursia', 14, "bold"),bg="pink",borderwidth=0)
         self.but.grid(row=1, column=1, pady=5, padx=5)
         for eng in secenek:
             self.Birinci = Button(self, text=eng, font=('Pursia', 14, "bold"), borderwidth=0)
